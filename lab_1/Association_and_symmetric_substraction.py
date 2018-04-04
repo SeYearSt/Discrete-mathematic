@@ -19,7 +19,7 @@ def get_united_set(A,B):
 def get_symmetric_substraction_set(A,B):
     symmetric_substraction_set = get_united_set(A,B)
     
-    temp_list = [x for x in A if is_exist(x,B)]
+    temp_list = [x for x in A if x in B]
     
     for x in temp_list:
         symmetric_substraction_set.remove(x)
@@ -87,9 +87,7 @@ def main():
                    file_name = input("Enter file name:")
                    A, B = get_lists_from_file(file_name)
                    if len(A) == 0 or len(B) == 0:
-                       print(A)
-                       print(B)
-                       print("End of program...")
+                       print('End of program!')
                        return;
         if (control == 1 or control == 2):
                    break
@@ -98,3 +96,4 @@ def main():
     print('B =', B)
     print('A united B =',get_united_set(A,B))
     print('A symmetric_substraction_set B =',get_symmetric_substraction_set(A,B))
+    print('End of program!')
