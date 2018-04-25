@@ -97,3 +97,4 @@ def main():
     print('A united B =',get_united_set(A,B))
     print('A symmetric_substraction_set B =',get_symmetric_substraction_set(A,B))
     print('End of program!')
+main()
