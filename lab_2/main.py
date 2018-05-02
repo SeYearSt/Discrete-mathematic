@@ -5,12 +5,15 @@ posible_placements = []
 
 def get_students_from_file(file_name):
     if os.path.exists(file_name):
-       file = open(file_name, 'r')
-       file_2 = open(file_name,'r') # change like in cpp move ptr to first line
-       return  ([0 for student in file.readline().split()],[x for x in file_2.readline().split()])
+        file = open(file_name, 'r')
+        places = ([0 for student in file.readline().split()])
+        file.seek(0,0)
+        students = [x for x in file.readline().split()]
+        file.close()
+        return (places, students)
     else:
-        print("File don`t exist")
-        return
+         print("File don`t exist")
+         return
 
 
 def set_placement(place, objects, index):
@@ -27,14 +30,15 @@ def set_placement(place, objects, index):
 
 
 def print_students_in_rooms(placement):
+
     count = 0
     for el in placement:
-        print(el,end="")
+        print(el,end=" ")
         count = count + 1
         if count == 1:
-            print(" ",end="")
+            print("  ",end="")
         elif count == 4:
-            print(" ",end="")
+            print("  ",end="")
         elif count == 8:
             print()
 
@@ -65,15 +69,11 @@ def print_some_placements(N = 20):
             break
 
 
+if __name__ == "__main__":
+    rooms,students = get_students_from_file("students.txt")
+    print("students: ",students)
+    set_placement(rooms,students,0)
 
-rooms,students = get_students_from_file("students.txt")
-print("students: ",students)
-set_placement(rooms,students,0)
+    print_some_placements()
 
-print_some_placements()
-
-write_placements_to_file("result.txt")
-#write_placements_to_file("result.txt")
-
-
-# print(posible_placements)
+    write_placements_to_file("result.txt")
