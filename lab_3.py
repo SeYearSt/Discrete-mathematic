@@ -19,7 +19,7 @@ def check_for_conflict(f):
     for el in f:
         if el == 1:
             return False
-    return True
+    return True	
 
 def check_for_saving_zero(f):
     if f[0] == 0:
