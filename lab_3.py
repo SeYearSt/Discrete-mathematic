@@ -1,6 +1,4 @@
-﻿import numpy as np
-
-def input_func():
+﻿def input_func():
     func = []
     try:
         temp_list = [int(el) for el in input().split()]
@@ -16,10 +14,11 @@ def is_power2(num):
 	return num != 0 and ((num & (num - 1)) == 0)
 
 def check_for_conflict(f):
+    pr = True
     for el in f:
         if el == 1:
-            return False
-    return True	
+            pr = False
+    return pr
 
 def check_for_saving_zero(f):
     if f[0] == 0:
@@ -42,4 +41,4 @@ if __name__ == "__main__":
             print("Function don`t save zero (не зберігає константу нуля)")
     else:
         print('Incorrect data!')
-    input('End')
+    input('Press any key to exit')
